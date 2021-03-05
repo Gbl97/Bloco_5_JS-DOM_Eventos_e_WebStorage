@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+      // 1 - Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
+      let title = document.createElement("h1"); // Crio a Tag P
+      title.innerText = "Exercício 5.2 - JavaScript DOM"; // Insere o texto
+      document.body.appendChild(title);// Adiciona
+
+      // 2 - Adicione a tag div com a classe main-content como filho da tag body;
+      let firstDiv = document.createElement("div"); //Crio a Div
+      document.body.appendChild(firstDiv); // Adiciono a Div no Body;
+      firstDiv.className = "main-content" // Criando a classe main-content
+
+      // 3 - Adicione a tag div com a classe center-content como filho da tag div criada no passo 2;
+      let secondDiv = document.createElement("div"); //Crio a 2° Div
+      firstDiv.appendChild(secondDiv); // Adiciono a 2° Div no FirstDiv;
+      secondDiv.className = 'center-content' // Criando a classe center-content
+
+      // 4 - Adicione a tag p como filho do div criado no passo 3 e coloque algum texto;
+      let paragraphSecondDiv = document.createElement("p");
+      secondDiv.appendChild(paragraphSecondDiv);
+      paragraphSecondDiv.innerText = "Criei um parágrafo :D!!!";
+
+      // 5 - Adicione a tag div com a classe left-content como filho da tag div criada no passo 2;
+      let thirdDiv = document.createElement("div");
+      firstDiv.appendChild(thirdDiv);
+      thirdDiv.className = 'left-content';
+
+      // 6 - Adicione a tag div com a classe right-content como filho da tag div criada no passo 2;
+      let fourthDiv = document.createElement("div");
+      firstDiv.appendChild(fourthDiv);
+      fourthDiv.className = 'right-content';
+
+      // 7 - Adicione uma imagem com src configurado para o valor https://picsum.photos/200 e classe small-image.
+      // Esse elemento deve ser filho do div criado no passo 5;
+      let image = document.createElement("img");
+      thirdDiv.appendChild(image);
+      image.src = 'https://picsum.photos/200';
+      image.className = 'small-image';
+
+      // 8 - Adicione uma lista não ordenada com os valores de 1 a 10 por extenso como valores da lista.
+      // Essa lista deve ser filha do div criado no passo 6;
+      let firstListUl = document.createElement("ul"); // Crio a Ul
+      fourthDiv.appendChild(firstListUl); // Adiciono ela como um filho da Div FourthDiv
+
+      let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']; // Crio os valores que serão inseridos na Ul
+      let rightContentList = document.querySelector('.right-content');// Recupero a classe right-content da Div FourthDiv
+
+      for (let index = 0; index < numbers.length; index += 1) {
+        let numbersLi = numbers[index]; // Jogo os valores (items) que estão no meu array para uma variável
+
+        let numbersListItem = document.createElement('li'); // Crio a lista
+        numbersListItem.className = 'list';
+        numbersListItem.innerText = numbersLi; // Faço o numbersLi ir para numbersListItem
+
+        rightContentList.appendChild(numbersListItem); // Adiciono numbersListItem como filho da div onde a classe rightContent está
+      }
+
+      // 9 - Adicione 3 tags h3 , todas sendo filhas do div criado no passo 2.
+      let firstTagTitle = document.createElement("h3");
+      firstDiv.appendChild(firstTagTitle);
+      let secondTagTitle = document.createElement("h3");
+      firstDiv.appendChild(secondTagTitle);
+      let thirdTagTitle = document.createElement("h3");
+      firstDiv.appendChild(thirdTagTitle);
+
+      // Agora que você criou muita coisa, vamos fazer algumas alterações e remoções:
+      // 1 - Adicione a classe title na tag h1 criada:
+      title.className = 'title';
+
+      // 2 - Adicione a classe description nas 3 tags h3 criadas:
+      firstTagTitle.className = 'description';
+      secondTagTitle.className = 'description';
+      thirdTagTitle.className = 'description';
+
+      // 3 - Remova o div criado no passo 5 (aquele que possui a classe left-content ). 
+      //Utilize a função .removeChild();
+      firstDiv.removeChild(thirdDiv);
+      
+      // 4 - Centralize o div criado no passo 6 (aquele que possui a classe right-content ).
+      // Dica: para centralizar, basta configurar o margin-right: auto do div ;
+      let rightContent = document.querySelector('.right-content');
+      rightContent.style.marginRight = 'auto';
+
+      // 5 - Troque a cor de fundo do elemento pai da div criada no 
+      //passo 3 (aquela que possui a classe center-content ) para a cor verde;
+      let centerContent = document.querySelector('.center-content');
+      centerContent.style.backgroundColor = 'rgb(76,164,109)';
+
+      // 6 - Remova os dois últimos elementos ( nove e dez ) da lista criada no passo 8.
+      
+      let numbersListItem = document.querySelectorAll('.list');
+
+      for (let index = 0; index < numbersListItem.length; index += 1) {
+        let element = numbersListItem[index];
+
+        if (element.innerText.includes('10')) {
+        rightContentList.removeChild(element);
+        } 
+      }
+
+      for (let index = 0; index < numbersListItem.length; index += 1) {
+        let element = numbersListItem[index];
+
+        if (element.innerText.includes('9')) {
+        rightContentList.removeChild(element);
+        } 
+      }
+    </script>
+  </body>
+</html>
