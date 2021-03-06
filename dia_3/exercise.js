@@ -69,15 +69,15 @@ function executeChangeBackground() {
 };
 
 function eventChangeBackground() {
-    let getHoliday = document.querySelector('.holiday');
-    let backgroundColor = 'rgb(238,238,238)';
-    let setColor = 'rgb(255,255,255)';
+    let getHoliday = document.querySelectorAll('.holiday');
+    let backgroundColor = 'rgb(238, 238, 238)';
+    let setColor = 'rgb(152, 230, 152)';
 
     for (let index = 0; index < getHoliday.length; index += 1) {
         if (getHoliday[index].style.backgroundColor === setColor) {
-            getHoliday[index].style.backgroundColor = backgroundColor;
+            console.log(getHoliday[index].style.backgroundColor = backgroundColor);
         } else {
-            getHoliday[index].style.backgroundColor = setColor;
+            console.log(getHoliday[index].style.backgroundColor = setColor);
         }
         
     }
