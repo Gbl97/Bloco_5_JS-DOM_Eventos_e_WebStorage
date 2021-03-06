@@ -45,5 +45,19 @@ function createDaysOfTheWeek() {
   };
 
   createDaysOfTheMonth();
+
+  function createButtonsContainer(buttonName) {
+    let getFatherBtnContainer = document.querySelector('.buttons-container');
+    let childBtnContainer = document.createElement('button');
+    let childBtnContainerID = 'btn-holiday';
+
+    childBtnContainer.innerHTML = buttonName;
+    childBtnContainer.id = childBtnContainerID;
+
+    getFatherBtnContainer.appendChild(childBtnContainer);
+
+    // 2º forma para adicionar um nó texto entre tags: childBtnContainer.textContent
+  };
   
+  createButtonsContainer('Feriado');
  
