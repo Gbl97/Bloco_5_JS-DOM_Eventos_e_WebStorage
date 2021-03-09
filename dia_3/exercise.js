@@ -25,7 +25,7 @@ function createDaysOfTheMonth() {
         const dayListItem2 = document.createElement('li');
 
         if (dayArray === 4 | dayArray === 11 | dayArray === 18) {
-            dayListItem2.className = 'day holiday';
+            dayListItem2.className = 'day friday';
             dayListItem2.innerHTML = dayArray;
             GetDayList.appendChild(dayListItem2);
         } else if (dayArray === 24 | dayArray === 31) {
@@ -84,4 +84,17 @@ function eventChangeBackground() {
 };
 
 executeChangeBackground();
+
+function createButtonFriday(buttonName) {
+    let getFatherBtnContainer = document.querySelector('.buttons-container');
+    let childBtnContainer = document.createElement('button');
+    let childBtnContainerID = 'btn-friday';
+
+    childBtnContainer.innerHTML = buttonName;
+    childBtnContainer.id = childBtnContainerID;
+
+    getFatherBtnContainer.appendChild(childBtnContainer);
+}
+
+createButtonFriday('Sexta-feira');
 
