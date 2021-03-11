@@ -162,3 +162,18 @@ function adicionandoLegenda(cor){
     myTasks.appendChild(legendColor);
 }
 adicionandoLegenda('green');
+
+function eventoSelecionado () {
+    let getMyTasks = document.querySelector('.task');
+    let taskSelecionada = document.getElementsByClassName('task selected');
+
+    getMyTasks.addEventListener('click', (event) => {
+        let eventTarget = event.target;
+        if (taskSelecionada.length === 0) {
+            eventTarget.className = 'task selected';
+        } else {
+            eventTarget.className = 'task';
+        }
+    });
+};
+eventoSelecionado();
