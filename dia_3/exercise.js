@@ -195,3 +195,33 @@ function eventoColocandoCorNoDia() {
     });
 }
 eventoColocandoCorNoDia();
+
+function adicionandoNovaTarefa() {
+    let getInputField = document.querySelector('#task-input');
+    let getBtnAdd = document.querySelector('#btn-add');
+    let getTaskList = document.querySelector('.task-list');
+
+    getBtnAdd.addEventListener('click', () => {
+        if (getInputField.value.length > 0) {
+            let novaLi = document.createElement('li');
+            novaLi.innerText = getInputField.value;
+
+            getTaskList.appendChild(novaLi);
+            getInputField.value = '';
+        } else {
+            alert('Error: Digite ao menos 1 caractere.');
+        }
+    })
+
+    getInputField.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13 && getInputField.value.length > 0) {
+            let novaLi = document.createElement('li');
+            novaLi.innerText = getInputField.value;
+
+            getTaskList.appendChild(novaLi);
+            getInputField.value = '';
+        } 
+    });
+};
+
+adicionandoNovaTarefa();
