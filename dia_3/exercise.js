@@ -6,6 +6,7 @@ function createDaysOfTheWeek() {
         const days = weekDays[index];
         const dayListItem = document.createElement('li');
         dayListItem.innerHTML = days;
+        dayListItem.originalText = days;
 
         weekDaysList.appendChild(dayListItem);
     };
@@ -65,7 +66,7 @@ function executeChangeBackground() {
     let executaEvento;
     let getBtnHoliday = document.querySelector('#btn-holiday');
 
-    executaEvento = getBtnHoliday.addEventListener('click',eventChangeBackground);
+    executaEvento = getBtnHoliday.addEventListener('click', eventChangeBackground);
 };
 
 function eventChangeBackground() {
@@ -79,7 +80,7 @@ function eventChangeBackground() {
         } else {
             console.log(getHoliday[index].style.backgroundColor = setColor);
         }
-        
+
     }
 };
 
@@ -97,4 +98,49 @@ function createButtonFriday(buttonName) {
 }
 
 createButtonFriday('Sexta-feira');
+
+function eventChangeTextFriday() {
+    let getFriday = document.querySelectorAll('.friday');
+    let phraseFriday = 'Sextouuu!';
+    let fridayDays = [4, 11, 18, 25];
+
+    for (let index = 0; index < getFriday.length; index += 1) {
+        if (getFriday[index].textContent !== phraseFriday) {
+            getFriday[index].textContent = phraseFriday;
+        } else {
+            getFriday[index].textContent = fridayDays[index];
+        }
+    }
+}
+
+function executeChangeTextFriday() {
+    let executaEvento;
+    let getBtnHoliday = document.querySelector('#btn-friday');
+
+    executaEvento = getBtnHoliday.addEventListener('click', eventChangeTextFriday);
+}
+
+executeChangeTextFriday();
+
+function eventoAmpliaFonte () {
+    let getUlDays = document.querySelector('#days');
+
+    getUlDays.addEventListener('mouseover', (event) => {
+    let eventTarget = event.target;
+    eventTarget.style.fontSize = '30px';
+    eventTarget.style.fontWeight = 'bold';
+    });
+};
+
+function eventoDiminuiFonte () {
+    let getUlDays = document.querySelector('#days');
+
+    getUlDays.addEventListener('mouseout', (event) => {
+    let eventTarget = event.target;
+    eventTarget.style.fontSize = '20px';
+    });
+};
+
+eventoAmpliaFonte();
+eventoDiminuiFonte();
 
