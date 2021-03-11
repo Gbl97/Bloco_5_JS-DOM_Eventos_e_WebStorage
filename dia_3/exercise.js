@@ -153,3 +153,12 @@ function adicionaTarefas (tarefa){
 }
 adicionaTarefas('estudar');
 
+
+function adicionandoLegenda(cor){
+    let myTasks = document.querySelector('.my-tasks');
+    let legendColor = document.createElement('div');
+    legendColor.className = 'task';
+    legendColor.style.backgroundColor = cor;
+    myTasks.appendChild(legendColor);
+}
+adicionandoLegenda('green');
