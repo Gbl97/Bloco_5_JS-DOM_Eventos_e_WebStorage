@@ -144,3 +144,12 @@ function eventoDiminuiFonte () {
 eventoAmpliaFonte();
 eventoDiminuiFonte();
 
+function adicionaTarefas (tarefa){
+    let myTasks = document.querySelector('.my-tasks');
+    let childMyTasks = document.createElement('span');
+    childMyTasks.innerHTML = tarefa;
+
+    myTasks.appendChild(childMyTasks);
+}
+adicionaTarefas('estudar');
+
