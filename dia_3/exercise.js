@@ -177,3 +177,21 @@ function eventoSelecionado () {
     });
 };
 eventoSelecionado();
+
+function eventoColocandoCorNoDia() {
+    let taskSelecionada = document.getElementsByClassName('task selected');
+    let getUlDay = document.querySelector('#days');
+    let taskDiv = document.querySelector('.task');
+    let taskColor = taskDiv.style.backgroundColor;
+
+    getUlDay.addEventListener('click', (event) => {
+        let eventTargetColor = event.target.style.color;
+        if (taskSelecionada.length === 0 && eventTargetColor !== taskColor) {
+            let color = taskSelecionada[0].style.backgroundColor;
+            event.target.style.color = color;
+        } else if (eventTargetColor === taskColor && taskSelecionada.lenght !== 0) {
+            event.target.style.color = 'rgb(119, 199, 199)';
+        }
+    });
+}
+eventoColocandoCorNoDia();
